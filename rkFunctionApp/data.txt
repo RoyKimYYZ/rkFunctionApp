@@ -11,4 +11,5 @@ recipes
 
 apple pie
 banana bread
-blueberry
+blueberry muffin
+pancake
