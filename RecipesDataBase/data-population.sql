@@ -1,14 +1,13 @@
 ﻿
-INSERT INTO recipes 
+INSERT INTO [dbo].[recipes] 
     (id, name) 
 VALUES 
     (1,'Hamburger'),
     (2,'Pizza'),
     (3,'Hotdog');
 
-GO;
 
-INSERT INTO ingredients
+INSERT INTO [dbo].[ingredients]
     (id, name, price)
 VALUES 
     (1, 'Beef', 5),
@@ -19,9 +18,8 @@ VALUES
     (6, 'Milk', 1),
     (7, 'Bread', 2);
 
-GO;
 
-INSERT INTO recipe_ingredients 
+INSERT INTO [recipe_ingredients]
     (recipe_id, ingredient_id, amount)
 VALUES
     (1,1,1),

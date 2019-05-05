@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{78760b1a-5720-4457-9f7f-fab339b6c249}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -24,6 +24,7 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <TargetDatabase>RecipesDatabase</TargetDatabase>
+    <GenerateCreateScript>False</GenerateCreateScript>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -61,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="create-tables.sql" />
-    <Build Include="data-population.sql" />
+    <PostDeploy Include="data-population.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="RecipesDatabase.publish.xml" />
   </ItemGroup>
 </Project>
