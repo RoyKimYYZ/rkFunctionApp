@@ -56,7 +56,7 @@ steps:
     SqlPassword: 'Password007'
     TaskNameSelector: 'SqlTask'
     DacpacFile: '$(agent.releaseDirectory)\RecipesDatabase.dacpac'
-    SqlFile: '$(build.artifactstagingdirectory)\bin\Release\RecipesDatabase_Create.sql'
+    SqlFile: '$(build.artifactstagingdirectory)\RecipesDatabase_Create.sql'
 
 - task: CmdLine@2
   inputs:
