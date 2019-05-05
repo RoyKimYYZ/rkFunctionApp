@@ -48,5 +48,5 @@ steps:
     SqlUsername: 'sqladmin'
     SqlPassword: 'Password007'
     TaskNameSelector: 'SqlTask'
-    DacpacFile: 'RecipesDatabase.dacpac'
-    SqlFile: 'RecipesDatabase.publish.sql'
+    DacpacFile: '$(agent.releaseDirectory)\RecipesDatabase.dacpac'
+    SqlFile: '$(agent.releaseDirectory)\RecipesDatabase.publish.sql'
