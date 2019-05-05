@@ -24,9 +24,11 @@ steps:
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=false /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
 
 - task: VSTest@2
   inputs:
@@ -36,4 +38,15 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    ArtifactName: 'drop'
+    ArtifactName: 'drop' 
+
+- task: SqlAzureDacpacDeployment@1
+  inputs:
+    ConnectedServiceNameARM: 'Visual Studio Enterprise (2dac1c43-b88c-412f-8b6c-89295fe465de)'
+    ServerName: 'rkfunctionsqlserver-hlzdrcz6kjmso.database.windows.net'
+    DatabaseName: 'rkfunctiondb'
+    SqlUsername: 'sqladmin'
+    SqlPassword: 'Password007'
+    TaskNameSelector: 'SqlTask'
+    DacpacFile: 'RecipesDatabase.dacpac'
+    SqlFile: 'RecipesDatabase.publish.sql'
