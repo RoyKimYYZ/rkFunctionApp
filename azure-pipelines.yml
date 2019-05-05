@@ -40,6 +40,13 @@ steps:
   inputs:
     ArtifactName: 'drop' 
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)'
+    Contents: '**/RecipesDatabase_Create.sql'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+    OverWrite: true
+
 - task: SqlAzureDacpacDeployment@1
   inputs:
     ConnectedServiceNameARM: 'Visual Studio Enterprise (2dac1c43-b88c-412f-8b6c-89295fe465de)'
@@ -49,4 +56,4 @@ steps:
     SqlPassword: 'Password007'
     TaskNameSelector: 'SqlTask'
     DacpacFile: '$(agent.releaseDirectory)\RecipesDatabase.dacpac'
-    SqlFile: '$(Build.Repository.LocalPath)\bin\Release\RecipesDatabase_Create.sql'
+    SqlFile: '$(build.artifactstagingdirectory)\bin\Release\RecipesDatabase_Create.sql'
