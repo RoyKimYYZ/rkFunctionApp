@@ -49,4 +49,4 @@ steps:
     SqlPassword: 'Password007'
     TaskNameSelector: 'SqlTask'
     DacpacFile: '$(agent.releaseDirectory)\RecipesDatabase.dacpac'
-    SqlFile: 'RecipesDatabase_Create.sql'
+    SqlFile: '$(Build.Repository.LocalPath)\RecipesDatabase_Create.sql'
