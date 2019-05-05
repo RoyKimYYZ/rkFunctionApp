@@ -47,6 +47,12 @@ steps:
     TargetFolder: '$(build.artifactstagingdirectory)'
     OverWrite: true
 
+- task: CmdLine@2
+  inputs:
+    script: 'echo dir
+
+
+echo Use the environment variables input below to pass secret variables to this script'
 - task: SqlAzureDacpacDeployment@1
   inputs:
     ConnectedServiceNameARM: 'Visual Studio Enterprise (2dac1c43-b88c-412f-8b6c-89295fe465de)'
@@ -54,10 +60,6 @@ steps:
     DatabaseName: 'rkfunctiondb'
     SqlUsername: 'sqladmin'
     SqlPassword: 'Password007'
-    TaskNameSelector: 'SqlTask'
-    DacpacFile: '$(agent.releaseDirectory)\RecipesDatabase.dacpac'
+    TaskNameSelector: 'DacpacTask'
+    DacpacFile: '$RecipesDataBase\bin\Release\RecipesDatabase.dacpac'
     SqlFile: 'RecipesDataBase\bin\Release\RecipesDatabase_Create.sql'
-
-- task: CmdLine@2
-  inputs:
-    script: 'dir'
