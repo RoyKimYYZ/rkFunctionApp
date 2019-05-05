@@ -57,3 +57,9 @@ steps:
     TaskNameSelector: 'SqlTask'
     DacpacFile: '$(agent.releaseDirectory)\RecipesDatabase.dacpac'
     SqlFile: '$(build.artifactstagingdirectory)\bin\Release\RecipesDatabase_Create.sql'
+
+- task: CmdLine@2
+  inputs:
+    script: 'dir
+
+echo Use the environment variables input below to pass secret variables to this script'
