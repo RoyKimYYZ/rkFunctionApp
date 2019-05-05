@@ -61,5 +61,5 @@ echo Use the environment variables input below to pass secret variables to this 
     SqlUsername: 'sqladmin'
     SqlPassword: 'Password007'
     TaskNameSelector: 'DacpacTask'
-    DacpacFile: '$RecipesDataBase\bin\Release\RecipesDatabase.dacpac'
+    DacpacFile: 'RecipesDataBase\bin\Release\RecipesDatabase.dacpac'
     SqlFile: 'RecipesDataBase\bin\Release\RecipesDatabase_Create.sql'
