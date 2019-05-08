@@ -41,8 +41,6 @@ steps:
     ArtifactName: 'drop' 
 
 
-
-echo Use the environment variables input below to pass secret variables to this script'
 - task: SqlAzureDacpacDeployment@1
   inputs:
     ConnectedServiceNameARM: 'Visual Studio Enterprise (2dac1c43-b88c-412f-8b6c-89295fe465de)'
