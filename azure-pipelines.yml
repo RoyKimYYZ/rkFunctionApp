@@ -40,16 +40,6 @@ steps:
   inputs:
     ArtifactName: 'drop' 
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)'
-    Contents: '**/RecipesDatabase_Create.sql'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-    OverWrite: true
-
-- task: CmdLine@2
-  inputs:
-    script: 'echo dir
 
 
 echo Use the environment variables input below to pass secret variables to this script'
