@@ -40,14 +40,12 @@ steps:
   inputs:
     ArtifactName: 'drop' 
 
-
-- task: SqlAzureDacpacDeployment@1
+- task: ArchiveFiles@2
   inputs:
-    ConnectedServiceNameARM: 'Visual Studio Enterprise (2dac1c43-b88c-412f-8b6c-89295fe465de)'
-    ServerName: 'rkfunctionsqlserver-hlzdrcz6kjmso.database.windows.net'
-    DatabaseName: 'rkfunctiondb'
-    SqlUsername: 'sqladmin'
-    SqlPassword: 'Password007'
-    TaskNameSelector: 'DacpacTask'
-    DacpacFile: 'RecipesDataBase\bin\Release\RecipesDatabase.dacpac'
-    SqlFile: 'RecipesDataBase\bin\Release\RecipesDatabase_Create.sql'
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
+    
